@@ -1,0 +1,30 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+        
+  - name: uninstall docker package
+    apt:
+       name: docker.io
+       state: absent
+  - name: uninstall docker-compose package
+    apt:
+       name: docker-compose
+       state: absent
+  - name: uninstall git package
+    apt:
+       name: git
+       state: absent
+  - name: uninstall nginx package
+    apt:
+       name: nginx
+       state: absent
+  - name: unisntall apache2 package
+    apt:
+       name: apache2
+       state: absent
+  - name: "Stop Nginx Services"
+    service:
+      name: nginx
+      state: stopped
